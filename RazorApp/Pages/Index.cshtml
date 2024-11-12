@@ -1,0 +1,23 @@
+﻿@page
+@model FileUploadApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Fájl feltöltés";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Fájl Feltöltés</h1>
+</div>
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Válassz egy fájlt</label>
+            <input type="file" name="Upload" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Feltöltés</button>
+    </form>
+
+    @if (!string.IsNullOrWhiteSpace(Model.FilePath))
+    {
+        <p>Fájl elérési útja: <a href="@Model.FilePath" target="_blank">@Model.FilePath</a></p>
+    }
+</div>
